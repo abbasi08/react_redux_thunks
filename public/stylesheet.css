@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(255, 236, 127);
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(85, 43, 43);
+}
+h2 {
+  font-family: fantasy;
+  color: rgba(204, 99, 0, 0.966);
+}
+
+li {
+  color: rgb(85, 43, 43);
+}

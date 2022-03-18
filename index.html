@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script src="/dist/main.js" defer></script>
+
+    <script
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+      integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            foodItems: [],
+          };
+        }
+        async componentDidMount() {
+          const response = await axios.get("/foodItems");
+          const foodItems = response.data;
+          this.setState({ foodItems });
+        }
+        render() {
+          const foodItems = this.state.foodItems;
+          return (
+            <div>
+              <h1> Breakfast Foods </h1>
+              <h2> What do you like to eat for breakfast? </h2>
+              <button onClick={this.create}>Add it here</button>
+              <ul>
+                {foodItems.map((each) => {
+                  return <li>{each.name}</li>;
+                })}
+              </ul>
+
+              <h1> Meal Prep </h1>
+              <h2> Combine breakfast foods to make a meal! </h2>
+              <ul> </ul>
+            </div>
+          );
+        }
+      }
+      const root = document.querySelector("#root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
+<html>
+  <head>
+    <title>Dealers Choice React Redux Thunks</title>
+    <link rel="stylesheet" href="/public/stylesheet.css" />
+    <script src="/dist/main.js" defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
